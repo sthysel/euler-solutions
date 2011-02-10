@@ -20,7 +20,16 @@ public class E1 {
 		return total;
 	}
 	
+	
 	private int progression() {
-		return 0;
+		return sumDivisibleBy(3, 999) + sumDivisibleBy(5, 999) - sumDivisibleBy(15, 999);	
+	}
+	
+	/*
+	 * 1+2+3+...+p=(*p*(p+1))/2
+	 */
+	private int sumDivisibleBy(int div, int max) {
+		int p = max / div;
+		return (int) div * (p * (p + 1))/2;
 	}
 }
