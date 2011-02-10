@@ -26,7 +26,7 @@ public class E1 {
 	}
 	
 	/*
-	 * 1+2+3+...+p=(*p*(p+1))/2
+	 * 1+2+3+...+p=p*(p+1)/2
 	 */
 	private int sumDivisibleBy(int div, int max) {
 		int p = max / div;
