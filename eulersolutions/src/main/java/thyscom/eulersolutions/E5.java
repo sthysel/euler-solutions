@@ -8,6 +8,8 @@ public class E5 {
 	 * 
 	 * What is the smallest positive number that is evenly divisible by all of
 	 * the numbers from 1 to 20?
+	 * 
+	 * Answer: 232792560
 	 */
 
 	int max = 20;
@@ -16,9 +18,31 @@ public class E5 {
 
 		E5 e5 = new E5();
 		System.out.println(e5.bruteFind());
+		System.out.println(e5.bruteFind2());
 
 	}
 
+	private int bruteFind2() {
+		int candidate = 20;
+		while(true) {
+			if(testDivisibility(candidate)) {
+				return candidate;
+			} else {
+				candidate = candidate + 2;
+			}
+		}
+		
+	}
+	
+	private boolean testDivisibility(int candidate) {
+		for(int i = 1; i <= 20; i++) {
+			if( candidate % i != 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	private int bruteFind() {
 		int candidate = 20;
 		while (true) {
