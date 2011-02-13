@@ -9,28 +9,58 @@ package thyscom.eulersolutions;
  * By considering the terms in the Fibonacci sequence whose values do not exceed
  * four million, find the sum of the even-valued terms.
  * 
- * @author thysmeintjes
+ * Answer: 4613732
+ * 
  */
 public class E2 {
+
+	int MAX = 4000000;
+
 	public static void main(String[] args) {
 		E2 e2 = new E2();
-		System.out.println(e2.find());
+		System.out.println(e2.testfind());
+		System.out.println(e2.smarterFind());
 	}
 
-	private int find() {
-		int total = 0;
-		int previousFib = 1;
-		int currentFib = 2;
-		int tmp = 0;
-		
-		while (currentFib < 4000000) {
-			if (currentFib % 2 == 0) {
-				total += currentFib;
-			}
-			tmp = previousFib;
-			previousFib = currentFib;
-			currentFib += tmp;
+	/**
+	 * a,b,c,a,b,c,a,b,c only c are even
+	 * 
+	 * @return
+	 */
+	private int smarterFind() {
+		int a = 1;
+		int b = 1;
+		int c = a + b;
+		int sum = 0;
+
+		while (c < MAX) {
+			sum += c;
+			a = b + c;
+			b = c + a;
+			c = a + b;
 		}
-		return total;
+		return sum;
+	}
+
+	/**
+	 * a,b,a,b,....
+	 * 
+	 * @return
+	 */
+	private int testfind() {
+		int sum = 0;
+		int a = 1;
+		int b = 1;
+		int tmp = 0;
+
+		while (b < MAX) {
+			if (b % 2 == 0) {
+				sum += b;
+			}
+			tmp = a + b;
+			a = b;
+			b = tmp;
+		}
+		return sum;
 	}
 }
