@@ -26,17 +26,23 @@ public class PrimeTools {
 		return true;
 	}
 
-	public static List<Integer> factorize(long l) {
+	/**
+	 * Returns a Integer List of prime factors given a long.
+	 * The usual caveats of Integers and large numbers apply.
+	 * @param number
+	 * @return List of prime factors
+	 */
+	public static List<Integer> factorize(long number) {
 		List<Integer> factors = new ArrayList<Integer>();
 		
-		for (int i = 2; i <= (int) Math.sqrt(l); i++) {
-			while (l % i == 0) {
-				l /= i;
-				factors.add(i);
+		for (int divisor = 2; divisor <= (int) Math.sqrt(number); divisor++) {
+			while (number % divisor == 0) {
+				number /= divisor;
+				factors.add(divisor);
 			}
 		}
-		if (l > 1) {
-			factors.add((int) l);
+		if (number > 1) {
+			factors.add((int) number);
 		}
 		return factors;
 	}
