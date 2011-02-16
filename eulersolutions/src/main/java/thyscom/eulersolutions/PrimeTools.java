@@ -26,17 +26,17 @@ public class PrimeTools {
 		return true;
 	}
 
-	public static List<Integer> factorize(Integer number) {
+	public static List<Integer> factorize(long l) {
 		List<Integer> factors = new ArrayList<Integer>();
 		
-		for (int i = 2; i <= (int) Math.sqrt(number); i++) {
-			while (number % i == 0) {
-				number /= i;
+		for (int i = 2; i <= (int) Math.sqrt(l); i++) {
+			while (l % i == 0) {
+				l /= i;
 				factors.add(i);
 			}
 		}
-		if (number > 1) {
-			factors.add(number);
+		if (l > 1) {
+			factors.add((int) l);
 		}
 		return factors;
 	}
