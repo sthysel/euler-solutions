@@ -13,6 +13,11 @@ public class E4 {
 		System.out.println(e4.brute());
 	}
 
+	/**
+	 * Brute force solution. Explore the complete solution space and bubble up
+	 * the last largest palindrome.
+	 * @return
+	 */
 	private long brute() {
 		long currentLargest = 0;
 		

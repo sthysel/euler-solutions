@@ -18,9 +18,9 @@ public class PrimeTools {
 	 * 
 	 * @return
 	 */
-	public static boolean isPrime(int number) {
-		for (int i = 2; i <= Math.sqrt(number); i++) {
-			if (number % i == 0)
+	public static boolean isPrime(long candidate) {
+		for (int i = 2; i <= Math.sqrt(candidate); i++) {
+			if (candidate % i == 0)
 				return false;
 		}
 		return true;
