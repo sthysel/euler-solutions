@@ -36,7 +36,7 @@ public class E8 {
 	private long productOf5(String number, int start) {
 		long currentProduct = 1;
 		for (int j = start; j < start + 5; j++) {
-			currentProduct = currentProduct * new Integer(number.substring(j,j+1));
+			currentProduct = currentProduct * Integer.parseInt(number.substring(j,j+1));
 		}
 
 		return currentProduct;
